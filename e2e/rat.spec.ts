@@ -1,7 +1,11 @@
 import { test, expect } from '@playwright/test';
 
-test('has title', async ({ page }) => {
-  await page.goto('http://127.0.0.1:5173');
+test.describe('rat', () => {
+  test.beforeEach(async ({ page }) => {
+    await page.goto('/');
+  });
 
-  await expect(page).toHaveTitle(/rat/);
+  test('has title rat', async ({ page }) => {
+    await expect(page).toHaveTitle(/rat/);
+  });
 });

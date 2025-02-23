@@ -12,12 +12,15 @@
     "fmt": "prettier . --write"
   },
   "dependencies": {
+    "@tanstack/react-router": "^1.109.2",
     "prettier": "^3.5.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.19.0",
+    "@tanstack/router-devtools": "^1.109.2",
+    "@tanstack/router-plugin": "^1.109.2",
     "@types/react": "^19.0.8",
     "@types/react-dom": "^19.0.3",
     "@vitejs/plugin-react-swc": "^3.5.0",

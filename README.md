@@ -11,8 +11,8 @@ React app template.
 
 ## Commands
 
-| Command | Usage |
-| ------- | ----- |
-| dev | Run your app! |
-| check | Check the formatting of your app with prettier. |
-| fmt | Format files in your app with prettier. |
+| Command | Usage                                           |
+| ------- | ----------------------------------------------- |
+| dev     | Run your app!                                   |
+| check   | Check the formatting of your app with prettier. |
+| fmt     | Format files in your app with prettier.         |

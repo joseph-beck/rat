@@ -1,8 +1,37 @@
-# RAT
+# rat
 
-React app template!
+![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/joseph-beck/rat/checks.yml?label=checks)
+![GitHub Release](https://img.shields.io/github/v/release/joseph-beck/rat)
+![GitHub License](https://img.shields.io/github/license/joseph-beck/rat)
 
-## Built Using
+## about
+
+(r)eact (a)pp (t)emplate!
+
+a template to quickly start building react applications using tanstack router and shad.
+
+## get started
+
+```bash
+# 1. clone the repo
+git clone https://github.com/joseph-beck/rat
+# 1.1 optionally remove existing git repo and init your own
+rm -rf .git
+git init
+
+# 2. install pnpm if missing
+npm i -g pnpm
+
+# 3. install packages
+pnpm install
+
+# 4. run your app
+pnpm run dev
+
+# 5. connect on localhost:5173!
+```
+
+## built using
 
 - React
 - Vite
@@ -12,7 +41,7 @@ React app template!
 - TailwindCSS
 - Playwright
 
-## Commands
+## commands
 
 | Command  | Usage                                                |
 | -------- | ---------------------------------------------------- |

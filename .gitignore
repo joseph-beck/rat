@@ -31,3 +31,7 @@ dist-ssr
 
 # Vitest
 /coverage
+
+# Tanstack
+.tanstack
+src/routeTree.gen.ts

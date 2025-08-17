@@ -107,3 +107,32 @@ jobs:
 
       - name: Run Lint Check
         run: pnpm run lint
+
+  # Creates an output of stats.html that visualizes the bundle size.
+  # This uploaded as an artifact to the PR.
+  bundle:
+    name: Bundle Analysis
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+
+      - name: Install pnpm
+        run: npm install -g pnpm
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Run Prettier Bundle Analyse
+        run: pnpm run bundle:analyse
+
+      - uses: actions/upload-artifact@v4
+        if: ${{ !cancelled() }}
+        with:
+          name: bundle-snalysis
+          path: dist/stats.html

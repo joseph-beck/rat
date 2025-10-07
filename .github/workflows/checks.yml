@@ -103,7 +103,7 @@ jobs:
         run: pnpm install
 
       - name: Run Prettier Check
-        run: pnpm run check
+        run: pnpm run fmt
 
       - name: Run Lint Check
         run: pnpm run lint

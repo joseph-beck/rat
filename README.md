@@ -43,14 +43,15 @@ pnpm run dev
 
 ## commands
 
-| Command       | Usage                                                |
-| ------------- | ---------------------------------------------------- |
-| dev           | Run your app!                                        |
-| build         | Build your app!                                      |
-| check         | Check the formatting of your app with prettier.      |
-| fmt           | Format files in your app with prettier.              |
-| e2e           | End to end testing using Playwright.                 |
-| test          | Unit testing using Vitest.                           |
-| test:coverage | Get a coverage report of your unit test with Vitest. |
-| lint          | Lint your project using Eslint                       |
-| lint:fix      | Fix any linting issues automatically with Eslint.    |
+| Command        | Usage                                                       |
+| -------------- | ----------------------------------------------------------- |
+| dev            | Run your app!                                               |
+| build          | Build your app!                                             |
+| fmt            | Check the formatting of your app with prettier.             |
+| fmt:fix        | Format files in your app with prettier.                     |
+| e2e            | End to end testing using Playwright.                        |
+| test           | Unit testing using Vitest.                                  |
+| test:coverage  | Get a coverage report of your unit test with Vitest.        |
+| lint           | Lint your project using Eslint                              |
+| lint:fix       | Fix any linting issues automatically with Eslint.           |
+| bundle:analyse | Create a graphical representation of the bundle with sizes. |

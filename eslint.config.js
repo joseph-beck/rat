@@ -36,6 +36,13 @@ export default defineConfig([
       'simple-import-sort/imports': 'error',
       'simple-import-sort/exports': 'error',
       'react/jsx-newline': ['error', { prevent: true }],
+      'no-console': 'warn',
+      'padding-line-between-statements': [
+        'error',
+        { blankLine: 'always', prev: 'expression', next: '*' },
+        { blankLine: 'always', prev: '*', next: 'expression' },
+        { blankLine: 'any', prev: 'expression', next: 'expression' },
+      ],
       'no-unused-vars': 'off',
       '@typescript-eslint/no-unused-vars': [
         'error',

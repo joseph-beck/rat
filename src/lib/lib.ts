@@ -1,3 +1,5 @@
-export function add(a: number, b: number): number {
+const add = (a: number, b: number): number => {
   return a + b;
-}
+};
+
+export { add };

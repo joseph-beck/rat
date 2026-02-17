@@ -1,6 +1,6 @@
 import './styles/global.css';
 
-import { createRouter,RouterProvider } from '@tanstack/react-router';
+import { createRouter, RouterProvider } from '@tanstack/react-router';
 import { StrictMode } from 'react';
 import ReactDOM from 'react-dom/client';
 
@@ -18,6 +18,7 @@ declare module '@tanstack/react-router' {
 }
 
 // Render the app
+// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 const rootElement = document.getElementById('root')!;
 if (!rootElement.innerHTML) {
   const root = ReactDOM.createRoot(rootElement);

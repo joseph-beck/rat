@@ -36,6 +36,9 @@ export default defineConfig([
       'simple-import-sort/imports': 'error',
       'simple-import-sort/exports': 'error',
       'react/jsx-newline': ['error', { prevent: true }],
+      'react/jsx-no-useless-fragment': 'error',
+      'react/jsx-boolean-value': ['error', 'never'],
+      curly: ['error', 'all'],
       'no-console': 'warn',
       'padding-line-between-statements': [
         'error',
@@ -58,6 +61,8 @@ export default defineConfig([
           caughtErrorsIgnorePattern: '^_',
         },
       ],
+      '@typescript-eslint/no-floating-promises': 'error',
+      '@typescript-eslint/consistent-type-imports': 'error',
     },
   },
 ]);

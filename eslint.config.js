@@ -10,7 +10,7 @@ import tseslint from 'typescript-eslint'
 export default defineConfig([
   tseslint.configs.strict,
   tseslint.configs.stylistic,
-  { ignores: ['dist', 'coverage'] },
+  { ignores: ['dist', 'coverage', 'dev-dist', '.vite'] },
   {
     files: ['**/*.{ts,tsx}'],
     languageOptions: {
@@ -39,6 +39,17 @@ export default defineConfig([
       'react/jsx-no-useless-fragment': 'error',
       'react/jsx-boolean-value': ['error', 'never'],
       curly: ['error', 'all'],
+      'object-curly-newline': [
+        'error',
+        {
+          ObjectExpression: {
+            multiline: true,
+            minProperties: 1,
+            consistent: true,
+          },
+        },
+      ],
+      'object-property-newline': ['error', { allowAllPropertiesOnSameLine: false }],
       'no-console': 'warn',
       'padding-line-between-statements': [
         'error',

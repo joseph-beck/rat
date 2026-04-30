@@ -4,7 +4,7 @@ const Route = createLazyFileRoute('/about')({
   component: Page,
 })
 
-function Page() {
+const Page = () => {
   return <div className="p-2">Hello from About!</div>
 }
 

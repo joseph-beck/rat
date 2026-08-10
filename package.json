@@ -14,16 +14,18 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint . --cache",
+    "lint:fix": "eslint . --fix --cache",
     "preview": "vite preview",
     "fmt": "prettier . --check --cache",
-    "fmt:fix": "prettier . --write",
+    "fmt:fix": "prettier . --write --cache",
     "e2e": "playwright test",
     "test": "vitest run",
     "test:coverage": "vitest run --coverage",
     "test:watch": "vitest watch",
-    "bundle:analyse": "vite-bundle-visualizer --output dist/stats.html"
+    "bundle:analyse": "vite-bundle-visualizer --output dist/stats.html",
+    "prepare": "husky"
   },
   "dependencies": {
     "@base-ui/react": "^1.7.0",
@@ -34,6 +36,7 @@
     "@tanstack/react-router": "^1.168.26",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "husky": "^9.1.7",
     "lucide-react": "^1.31.0",
     "react": "^19.2.5",
     "react-dom": "^19.2.5",

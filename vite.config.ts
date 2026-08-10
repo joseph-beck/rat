@@ -6,10 +6,13 @@ import { defineConfig } from 'vite'
 
 // https://vite.dev/config/
 export default defineConfig({
+  define: {
+    __APP_VERSION__: JSON.stringify(process.env.npm_package_version),
+  },
   plugins: [
     tanstackRouter({
-      target: 'react',
       autoCodeSplitting: true,
+      target: 'react',
     }),
     react(),
     tailwindcss(),
@@ -18,8 +21,5 @@ export default defineConfig({
     alias: {
       '@': path.resolve(__dirname, './src'),
     },
-  },
-  define: {
-    __APP_VERSION__: JSON.stringify(process.env.npm_package_version),
   },
 })

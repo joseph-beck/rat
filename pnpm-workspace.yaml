@@ -1,9 +1,13 @@
 ignoreScripts: true
 minimumReleaseAge: 10080
-trustPolicy: no-downgrade
 blockExoticSubdeps: true
 packages:
   - .
 ignoredBuiltDependencies:
   - sharp
   - unrs-resolver
+minimumReleaseAgeExclude:
+  - '@types/node@26.2.0'
+  - '@base-ui/react@1.7.0'
+  - '@base-ui/utils@0.3.2'
+  - lucide-react@1.31.0

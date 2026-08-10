@@ -1,11 +1,16 @@
-name: Checks
+name: PR
 
 # Run this workflow on every commit to every branch.
 on:
   push:
+    branches:
+      - 'main'
+  pull_request:
+    branches:
+      - '*'
 
 jobs:
-  # Test build the application.
+  # Build the application and produce a bundle analysis report.
   build:
     name: Build
     runs-on: ubuntu-latest
@@ -17,7 +22,7 @@ jobs:
       - name: Install pnpm
         uses: pnpm/action-setup@v4
         with:
-          version: 10
+          version: 11
 
       - name: Use Node.js
         uses: actions/setup-node@v4
@@ -30,31 +35,14 @@ jobs:
       - name: Build
         run: pnpm run build
 
-  # Run all unit testing libraries, e2e tests are done seperately.
-  # This uses Vitest.
-  test:
-    name: Test
-    runs-on: ubuntu-latest
+      - name: Run Bundle Analyse
+        run: pnpm run bundle:analyse
 
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
+      - uses: actions/upload-artifact@v4
+        if: ${{ !cancelled() }}
         with:
-          version: 10
-
-      - name: Use Node.js
-        uses: actions/setup-node@v4
-        with:
-          cache: 'pnpm'
-
-      - name: Install dependencies
-        run: pnpm install
-
-      - name: Run Tests
-        run: pnpm run test
+          name: bundle-snalysis
+          path: dist/stats.html
 
   # Run e2e tests using Playwright.
   e2e:
@@ -67,7 +55,7 @@ jobs:
       - name: Install pnpm
         uses: pnpm/action-setup@v4
         with:
-          version: 10
+          version: 11
 
       - name: Use Node.js
         uses: actions/setup-node@v4
@@ -78,7 +66,7 @@ jobs:
         run: pnpm install
 
       - name: Install Playwright Browsers
-        run: pnpx playwright install --with-deps
+        run: pnpm exec playwright install
 
       - name: Run Playwright tests
         run: pnpm e2e
@@ -90,10 +78,12 @@ jobs:
           path: playwright-report/
           retention-days: 30
 
-  # All style and lint checks:
+  # All checks including:
   # - Prettier check for code format.
   # - ESLint check for code quality.
-  style:
+  # - Vitest run unit tests.
+  # - Typecheck for type errors.
+  checks:
     name: Style and Linting
     runs-on: ubuntu-latest
 
@@ -104,7 +94,7 @@ jobs:
       - name: Install pnpm
         uses: pnpm/action-setup@v4
         with:
-          version: 10
+          version: 11
 
       - name: Use Node.js
         uses: actions/setup-node@v4
@@ -120,34 +110,8 @@ jobs:
       - name: Run Lint Check
         run: pnpm run lint
 
-  # Creates an output of stats.html that visualizes the bundle size.
-  # This uploaded as an artifact to the PR.
-  bundle:
-    name: Bundle Analysis
-    runs-on: ubuntu-latest
+      - name: Run Tests
+        run: pnpm run test
 
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: 10
-
-      - name: Use Node.js
-        uses: actions/setup-node@v4
-        with:
-          cache: 'pnpm'
-
-      - name: Install dependencies
-        run: pnpm install
-
-      - name: Run Prettier Bundle Analyse
-        run: pnpm run bundle:analyse
-
-      - uses: actions/upload-artifact@v4
-        if: ${{ !cancelled() }}
-        with:
-          name: bundle-snalysis
-          path: dist/stats.html
+      - name: Run Typecheck
+        run: pnpm run typecheck

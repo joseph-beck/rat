@@ -11,10 +11,10 @@ const queryClient = new QueryClient()
 const Page = (): ReactElement => (
   <QueryClientProvider client={queryClient}>
     <div className="p-2 flex gap-2">
-      <Link to="/" className="[&.active]:font-bold">
+      <Link className="[&.active]:font-bold" to="/">
         Home
       </Link>{' '}
-      <Link to="/about" className="[&.active]:font-bold">
+      <Link className="[&.active]:font-bold" to="/about">
         About
       </Link>
       <p className="fixed text-muted-foreground right-4">v{env.APP_VERSION}</p>

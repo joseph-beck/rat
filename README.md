@@ -1,6 +1,6 @@
 # rat
 
-![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/joseph-beck/rat/checks.yml?label=checks)
+![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/joseph-beck/rat/pr.yml?label=checks)
 ![GitHub Release](https://img.shields.io/github/v/release/joseph-beck/rat)
 ![GitHub License](https://img.shields.io/github/license/joseph-beck/rat)
 
